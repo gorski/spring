@@ -1,0 +1,66 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <servers>
+        <server>
+            <id>tomcat7-local</id>
+            <username>tomcat</username>
+            <password>tomcat</password>
+        </server>
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <!-- global properties -->
+            <properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+                <!-- Java source and target version -->
+                <java.version>1.7</java.version>
+				<javax.inject>1</javax.inject>
+
+                <!-- testing -->
+                <junit.version>4.12</junit.version>
+
+                <!-- spring -->
+                <spring.version>4.1.4.RELEASE</spring.version>
+                <spring.security.version>3.2.5.RELEASE</spring.security.version>
+
+                <!-- JPA/Hibernate-->
+                <hibernate.version>4.3.8.Final</hibernate.version>
+                <hibernate.search.version>5.1.0.Final</hibernate.search.version>
+
+                <jackson.version>1.7.1</jackson.version>
+                <dozer.version>5.5.1</dozer.version>
+
+                <commons-lang.version>3.3.2</commons-lang.version>
+
+                <!-- postgres and servlet version are openshift-dependent -->
+                <postgres.version>9.2-1003-jdbc4</postgres.version>
+
+                <!-- web - Tomcat 8 -->
+                <servlet.version>3.1.0</servlet.version>
+                <jsp.version>2.2</jsp.version>
+				
+				<!-- web - Tomcat 7 -->
+                <!--<servlet.version>3.0</servlet.version>
+                <jsp.version>2.2</jsp.version>-->
+
+                <!-- logging -->
+				<slf4j.version>1.7.5</slf4j.version>
+                <logback.version>1.1.2</logback.version>
+                <log4j.version>1.2.17</log4j.version>
+				
+				<!-- marshalling -->
+				<jersey.version>1.8</jersey.version>
+
+            </properties>
+        </profile>
+    </profiles>
+</settings>
