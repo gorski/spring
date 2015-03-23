@@ -22,7 +22,7 @@ public class AppConfig {
     public StrategyExecutor executor(){
         StrategyExecutor se = new StrategyExecutor();
         se.setCalculationStrategy(calculationStrategy);
-        se.setX(1);
+        se.setX(15);
         se.setY(3);
         return se;
     }

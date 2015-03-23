@@ -11,8 +11,14 @@ public class Main {
 
         ConfigurableApplicationContext xmlContext = new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
 //        CalculationStrategy context = (CalculationStrategy) xmlContext.getBean("myStrategy");
-        CalculationStrategy context = xmlContext.getBean("myStrategy", CalculationStrategy.class);
-        System.out.println("Result (spring): " + context.execute(10, 20));
+
+
+//        CalculationStrategy context = xmlContext.getBean("myStrategy", CalculationStrategy.class);
+//        System.out.println("Result (spring): " + context.execute(10, 20));
+
+
+
+        xmlContext.getBean(StrategyExecutor.class).execute();
     }
 
 }
