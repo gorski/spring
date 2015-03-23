@@ -32,6 +32,10 @@ public class StrategyController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String listContacts(Map<String, Object> map) {
 		map.put("result", calculationStrategy.execute(1,2));
+
+		// TODO:
+		util.listCtx( context );
+
 		return "/WEB-INF/jsp/strategy.jsp";
 	}
 
