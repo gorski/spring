@@ -1,10 +1,11 @@
 package com.trainings.basic;
 
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-//@Primary  // one way to make bean injected
-@Component("addStrategy")
+
+@Component
+@Profile("add")
 public class ConcreteStrategyAdd implements CalculationStrategy {
 
   public int execute(int a, int b) {

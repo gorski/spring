@@ -28,9 +28,7 @@ public class StrategyController {
 	@Autowired
 	ApplicationContext context;
 
-
 	@Autowired
-	@Qualifier("addStrategy")
 	private CalculationStrategy calculationStrategy;
 
 
