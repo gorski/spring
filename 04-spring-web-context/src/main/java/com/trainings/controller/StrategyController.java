@@ -1,9 +1,11 @@
 package com.trainings.controller;
 
 import com.trainings.basic.CalculationStrategy;
+import com.trainings.basic.Utils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,11 @@ public class StrategyController {
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(StrategyController.class);
 
 
+	@Autowired
+	Utils util;
+
+	@Autowired
+	ApplicationContext context;
 
 
 	@Autowired
@@ -34,7 +41,7 @@ public class StrategyController {
 		map.put("result", calculationStrategy.execute(1,2));
 
 		// TODO:
-		util.listCtx( context );
+		util.listCtx(context);
 
 		return "/WEB-INF/jsp/strategy.jsp";
 	}
