@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Bean
+    @Bean(name = "myStrategy")
+    // default bean name same as method below
     public CalculationStrategy myStrategy(){
         return new ConcreteStrategyAdd();
     }
