@@ -11,7 +11,11 @@
 		  class="com.trainings.spring.bean.HardDisk"
 		  factory-method="createBean" />
 
-	<bean id="wdHardDisk" class="com.trainings.spring.bean.HardDisk" scope="prototype">
+	<!-- bean is prototype, construction occures multiple times -->
+	<bean id="wdHardDisk"
+		  class="com.trainings.spring.bean.HardDisk"
+
+		  scope="prototype">
 		<constructor-arg index="0">
 			<value>WesternDigital RPM 7600</value>
 		</constructor-arg>

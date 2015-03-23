@@ -10,7 +10,15 @@ import org.springframework.context.annotation.Bean;
 public class StrategyFactory {
 
     @Autowired
-    CalculationStrategy myStrategy;
+    private CalculationStrategy myStrategy;
+
+    public CalculationStrategy getMyStrategy() {
+        return myStrategy;
+    }
+
+    public void setMyStrategy(CalculationStrategy myStrategy) {
+        this.myStrategy = myStrategy;
+    }
 
     public StrategyExecutor createStrategy(){
         StrategyExecutor executor = new StrategyExecutor();

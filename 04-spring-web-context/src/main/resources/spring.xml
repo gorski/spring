@@ -9,11 +9,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <bean id="strategyFactory" class="com.trainings.StrategyFactory" />
+    <!--<bean id="" class="" />-->
 
-    <bean id="strategyExecutor"
-          factory-bean="strategyFactory"
-          factory-method="createStrategy" ></bean>
 
-    <bean id="myStrategy" class="com.trainings.basic.ConcreteStrategyAdd" />
 </beans>
