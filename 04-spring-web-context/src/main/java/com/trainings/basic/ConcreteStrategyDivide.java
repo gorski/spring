@@ -2,7 +2,7 @@ package com.trainings.basic;
 
 import org.springframework.stereotype.Component;
 
-@Component("myStrategy")
+@Component("divideStrategy")
 public class ConcreteStrategyDivide implements CalculationStrategy {
 
   public int execute(int a, int b) {
