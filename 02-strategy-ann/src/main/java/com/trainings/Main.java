@@ -10,9 +10,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
+
+
 		ConfigurableApplicationContext xmlContext = new AnnotationConfigApplicationContext(AppConfig.class);
-		CalculationStrategy context = (CalculationStrategy) xmlContext.getBean("myStrategy");
-		System.out.println("Result (spring): " + context.execute(10, 20));
+
+		xmlContext.getBean(StrategyExecutor.class).execute();
 	}
 
 }
