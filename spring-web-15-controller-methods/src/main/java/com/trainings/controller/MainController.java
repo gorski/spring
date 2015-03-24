@@ -4,10 +4,7 @@ import com.trainings.basic.FakeRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,12 +23,23 @@ public class MainController {
     }
 
     @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-    public ModelAndView userInfo(@RequestParam("userId") Long userId) {
+    public ModelAndView userInfo(@RequestParam(value = "userId", defaultValue = "666") Long userId) {
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/WEB-INF/jsp/user.jsp");
         mav.addObject("userId", userId);
         mav.addObject("userName", fakeRepository.findUserById(userId));
+        return mav;
+    }
+
+    // allows multiple mappings for one method
+    @RequestMapping(value = {"/userInfo/{id}","/user/{id}"}, method = RequestMethod.GET)
+    public ModelAndView userInfo2(@PathVariable() Long id) { // default path name same as variable
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/WEB-INF/jsp/user.jsp");
+        mav.addObject("userId", id);
+        mav.addObject("userName", fakeRepository.findUserById(id));
         return mav;
     }
 
