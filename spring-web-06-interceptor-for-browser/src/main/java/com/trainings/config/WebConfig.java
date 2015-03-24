@@ -27,7 +27,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
 
         // this interceptor will only handle links matching pattern ...
-        registry.addInterceptor(executeTimeInterceptor).addPathPatterns("/forNiceBrowsersOnly**");
+
+        // method       -> only /method
+        // /admin/*     -> /admin/1 or /admin/2 but not /admin/user/sss
+        // /admin/**    -> catches /admin/sth/els/...
+
+        registry.addInterceptor(executeTimeInterceptor).addPathPatterns("/forNiceBrowsersOnly");
 
     }
 
