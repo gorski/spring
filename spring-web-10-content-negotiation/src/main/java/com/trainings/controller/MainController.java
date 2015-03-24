@@ -9,11 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.ws.rs.Produces;
 
-@Controller
+@RestController
 public class MainController {
 
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(MainController.class);
@@ -21,8 +22,8 @@ public class MainController {
     @Autowired
     private SystemInformation systemInformation;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
-    @ResponseBody
+    @RequestMapping(value = "/", method = RequestMethod.GET,
+            produces = {"application/json", "application/xml"})
     public SystemInformation sayHello() {
         return  systemInformation;
     }
