@@ -11,7 +11,7 @@ public class MainController {
 
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(MainController.class);
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method =  RequestMethod.GET)
     public ModelAndView sayHello() {
 
         LOG.info("Entering controller method");
@@ -19,6 +19,18 @@ public class MainController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/WEB-INF/jsp/hello.jsp");
         mav.addObject("hello", "Hello from the backend application!");
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/", method =  RequestMethod.POST)
+    public ModelAndView sayHelloPost() {
+
+        LOG.info("Entering controller method");
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/WEB-INF/jsp/hello.jsp");
+        mav.addObject("hello", "Hello from the backend application (through post HTTP)!");
 
         return mav;
     }
