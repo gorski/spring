@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+x<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
@@ -10,6 +10,7 @@
     <a href="<c: url value='/' />"><spring:message code="person.list.link.label"/></a>
     <div>
         <form:form action="${pageContext.request.contextPath}/person/create" commandName="person" method="POST">
+                <form:errors path="*" cssClass="error" element="div"/>
             <div>
                 <form:label path="firstName"><spring:message code="person.label.firstName"/>:</form:label>
                 <form:input path="firstName" size="20"/>

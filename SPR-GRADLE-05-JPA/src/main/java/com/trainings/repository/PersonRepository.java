@@ -13,10 +13,16 @@ public interface PersonRepository
         extends JpaRepository<Person, Long>,
         JpaSpecificationExecutor<Person> {
 
+    // this works because  JpaSpecificationExecutor gives implementation of this met
+    // :lastName - parameter taken from @Param
+
     @Query("SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(:lastName)")
     public List<Person> find(@Param("lastName") String lastName);
 
+    // @see Person - name of the query equals [Entity].[methodName]
     public List<Person> findByName(String lastName);
 
+
+    // for advanced search : Hibernate Search / Lucene
 
 }

@@ -18,6 +18,8 @@ public class PersonRepositoryService implements PersonService {
 
     private static final Logger LOG = Logger.getLogger(PersonRepositoryService.class);
 
+
+    // we're using Resource because of JPA (@Autowired won't work)
     @Resource
     private PersonRepository personRepository;
 

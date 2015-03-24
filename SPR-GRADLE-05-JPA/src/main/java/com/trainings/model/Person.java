@@ -7,6 +7,11 @@ import java.util.Date;
 
 @Entity
 @Table(name = "persons")
+
+// @see PersonRepository - name of the query equals [Entity].[methodName]
+
+// @NamedQuery better than @Query (compiles, no SQL injection)
+
 @NamedQuery(name = "Person.findByName",
         query = "SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(?1)")
 public class Person {
@@ -51,7 +56,7 @@ public class Person {
     }
 
     @Transient
-    public String getName() {
+    public String  getName() {
         StringBuilder name = new StringBuilder();
 
         name.append(firstName);

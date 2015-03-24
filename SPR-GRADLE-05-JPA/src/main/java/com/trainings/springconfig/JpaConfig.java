@@ -2,6 +2,7 @@ package com.trainings.springconfig;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,6 +42,9 @@ public class JpaConfig {
     @Resource
     private Environment environment;
 
+    @Autowired
+    private DataSource dataSource ;
+
     @Bean
     public DataSource dataSource() {
         BoneCPDataSource dataSource = new BoneCPDataSource();
@@ -66,7 +70,7 @@ public class JpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() throws ClassNotFoundException {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 
-        entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
 
