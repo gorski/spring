@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AppConfig.class)
+@ContextConfiguration(classes = AppConfig.class)
 public class OfficeTest {
 
     @Autowired
@@ -46,8 +46,6 @@ public class OfficeTest {
         Assert.assertEquals(10, invoiceSystem.getInvoiceAmount(1));
         verify(invoiceSystem).commit();
     }
-
-
 
 
 }

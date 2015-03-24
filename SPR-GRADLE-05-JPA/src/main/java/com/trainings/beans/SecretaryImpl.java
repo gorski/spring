@@ -15,12 +15,12 @@ public class SecretaryImpl implements Secretary {
     }
 
     @Override
-    public int commit(){
+    public int commit() {
         return 10 * invoiceSystem.commit();
     }
 
     @Override
-    public int getAmount(int id){
+    public int getAmount(int id) {
         return 10 * invoiceSystem.getInvoiceAmount(id);
     }
 

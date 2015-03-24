@@ -11,7 +11,7 @@ public class HardDisk implements Device {
     }
 
     public HardDisk(String name) {
-        LOG.info("Create (1): "+name);
+        LOG.info("Create (1): " + name);
         this.name = name;
     }
 
@@ -36,6 +36,4 @@ public class HardDisk implements Device {
                 "name='" + name + '\'' +
                 '}';
     }
-
-
 }

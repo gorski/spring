@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AppConfig.class)
+@ContextConfiguration(classes = AppConfig.class)
 public class SpringTest {
 
     private static final Logger LOG = Logger.getLogger(SpringTest.class);
@@ -29,6 +29,6 @@ public class SpringTest {
 //    @DirtiesContext
     public void test() {
         Assert.assertNotNull(computer.getDevices());
-        Assert.assertEquals(2, computer.getDevices().size());
+        Assert.assertEquals(3, computer.getDevices().size());
     }
 }

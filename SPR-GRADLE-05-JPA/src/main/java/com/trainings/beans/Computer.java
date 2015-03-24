@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Component("pc")
@@ -16,6 +15,7 @@ public class Computer {
 
     @Autowired
     @Value("#{devicesList}")
+//    @Qualifier("devicesList")
     private List<Device> devices;
 
     public List<Device> getDevices() {

@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AppConfig.class)
+@ContextConfiguration(classes = AppConfig.class)
 public class SecretaryTest {
     @Autowired
 
