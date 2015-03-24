@@ -1,2 +1,4 @@
-- simple controller, web application
-- enabled logging (logback)
+- static resources
+
+see:
+/WEB-INF/spring-servlet.xml
