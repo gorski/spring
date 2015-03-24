@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<context:annotation-config />
+
+	<context:property-placeholder location="classpath:app.properties" />
+
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<ref bean="loggedUserInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<context:component-scan base-package="com.trainings.spring">
+		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/> -->
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/> -->
+	</context:component-scan>
+
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<aop:aspectj-autoproxy />
+
+	<aop:config>
+		<!-- Performance logging pointcut - run for every method in a control or 
+			facade class -->
+		<aop:pointcut id="listMethodsPointcut"
+			expression="execution(* com.trainings.spring.controllers..*.list*(..))" />
+
+		<aop:advisor advice-ref="myMethodBeforeAdvice"
+			pointcut-ref="listMethodsPointcut" id="performanceLoggingInterceptorAdvisor" />
+
+	</aop:config>
+
+</beans>
