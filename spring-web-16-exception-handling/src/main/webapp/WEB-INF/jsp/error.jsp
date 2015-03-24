@@ -13,6 +13,6 @@
     </style>
 </head>
 <body>
-<h1>Error occurred ${exceptionMessage}</h1>
+<h1>Error occurred: ${exceptionMessage}</h1>
 </body>
 </html>

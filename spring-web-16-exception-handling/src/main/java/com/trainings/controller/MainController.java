@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class MainController {
 
@@ -28,19 +30,13 @@ public class MainController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/WEB-INF/jsp/user.jsp");
         mav.addObject("userId", id);
-        mav.addObject("userName", fakeRepository.findUserById(id));
+        mav.addObject("userName", fakeRepository.findUserById(id)); // this will throw Nullpointer
         return mav;
     }
 
 
 
-    @ExceptionHandler(RuntimeException.class)
-    public ModelAndView handleRuntime(RuntimeException e){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/WEB-INF/jsp/error.jsp");
-        mav.addObject("exceptionMessage", e.getMessage());
-        return mav;
-    }
+
 
 
 }

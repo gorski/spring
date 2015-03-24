@@ -17,7 +17,7 @@ public class FakeRepository {
      */
     public String findUserById(Long id) {
 
-        throw new NullPointerException();
+        throw new NullPointerException("Fake null pointer");
     }
 
 }
