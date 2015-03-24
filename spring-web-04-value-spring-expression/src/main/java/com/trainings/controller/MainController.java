@@ -23,6 +23,9 @@ public class MainController {
     @Value("#{ 2 < -5.0} ")
     private Boolean isTwoSmaller;
 
+    @Value("#{ myBean.x * 2}")
+    private Integer multipliedX;
+
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -35,6 +38,8 @@ public class MainController {
         mav.addObject("hello", hello);
         mav.addObject("osName", osName);
         mav.addObject("isTwoSmaller", isTwoSmaller);
+
+        mav.addObject("multipliedX", multipliedX);
 
         return mav;
     }
