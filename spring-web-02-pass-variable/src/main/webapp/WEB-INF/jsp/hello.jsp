@@ -1,4 +1,3 @@
-<%@ page import="java.util.Date" %>
 <html>
 <head>
     <title>Spring application</title>
@@ -13,7 +12,6 @@
     </style>
 </head>
 <body>
-<%= new Date() %>
-<h1>Hello!</h1>
+<h1>Hello and ${hello}</h1>
 </body>
 </html>

@@ -1,0 +1,1 @@
+- pass variable from controller to frontend

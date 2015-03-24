@@ -4,6 +4,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
@@ -11,19 +12,15 @@ public class MainController {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String sayHello() {
+    public ModelAndView sayHello() {
 
         LOG.info("Entering controller method");
 
-        return "/WEB-INF/jsp/hello.jsp";
-    }
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/WEB-INF/jsp/hello.jsp");
+        mav.addObject("hello", "Hello from the backend application!");
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String sayHello2() {
-
-        LOG.info("Entering controller method");
-
-        return "/WEB-INF/jsp/hello.jsp";
+        return mav;
     }
 
 
