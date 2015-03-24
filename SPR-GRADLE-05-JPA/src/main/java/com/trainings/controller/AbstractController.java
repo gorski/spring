@@ -43,7 +43,6 @@ public abstract class AbstractController {
     }
 
 
-
     protected void setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
     }

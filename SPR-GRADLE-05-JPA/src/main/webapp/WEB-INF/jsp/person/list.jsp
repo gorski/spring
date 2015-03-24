@@ -20,7 +20,7 @@
         <div class="errorblock"><c:out value="${errorMessage}"/></div>
     </c:if>
 </div>
-<h1><spring:message code="person.list.page.title"/></h1>
+<h1><spring:message code="person.list.page.title" /></h1>
 <a href="<c:url value='/person/create' />"><spring:message code="person.create.link.label"/></a>
 <table>
     <thead>

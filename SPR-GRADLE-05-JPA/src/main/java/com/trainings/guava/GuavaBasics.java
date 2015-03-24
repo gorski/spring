@@ -13,29 +13,28 @@ public class GuavaBasics {
     public static void main(String[] args) {
 
         // optional - return from method
-        Optional<Integer> optional =  Optional.absent();
+        Optional<Integer> optional = Optional.absent();
         Integer or = optional.or(1);
         LOG.info("Optional? " + optional.isPresent());
-        LOG.info("Int: "+ or );
+        LOG.info("Int: " + or);
 //        LOG.info("Optional? " + optional.get());  // IllegalStateException
 
 
         // String or null
-        String[] person = { "AAA", "BBB", "CCCC", null, null};
-        for (String p : person){
+        String[] person = {"AAA", "BBB", "CCCC", null, null};
+        for (String p : person) {
             String nullOrEmpty = Strings.nullToEmpty(p);
-            LOG.info("{"+nullOrEmpty+"}");
+            LOG.info("{" + nullOrEmpty + "}");
         }
 
         // Equal on null values
         boolean a = Objects.equal(null, null);
-        LOG.info("Equal? = " +a);
-
+        LOG.info("Equal? = " + a);
 
 
     }
 
-    public boolean foo(String param){
+    public boolean foo(String param) {
         return "bar".equals(param);
 
     }

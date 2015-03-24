@@ -5,14 +5,12 @@ import com.trainings.dto.PersonDTO;
 import com.trainings.model.Person;
 import com.trainings.service.PersonNotFoundException;
 import com.trainings.service.PersonService;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -137,7 +135,7 @@ public class PersonController extends AbstractController {
 
         addFeedbackMessage(attributes, FEEDBACK_MESSAGE_KEY_PERSON_CREATED, person.getName());
 
-        return new ModelAndView("redirect:"+REQUEST_MAPPING_LIST);
+        return new ModelAndView("redirect:" + REQUEST_MAPPING_LIST);
     }
 
 
@@ -149,7 +147,7 @@ public class PersonController extends AbstractController {
         if (person == null) {
             LOG.debug("No person found with id: " + id);
             addErrorMessage(attributes, ERROR_MESSAGE_KEY_EDITED_PERSON_WAS_NOT_FOUND);
-            return new ModelAndView("redirect:"+REQUEST_MAPPING_LIST);
+            return new ModelAndView("redirect:" + REQUEST_MAPPING_LIST);
         }
 
         model.addAttribute(MODEL_ATTIRUTE_PERSON, constructFormObject(person));
@@ -175,6 +173,6 @@ public class PersonController extends AbstractController {
             addErrorMessage(attributes, ERROR_MESSAGE_KEY_EDITED_PERSON_WAS_NOT_FOUND);
         }
 
-        return new ModelAndView("redirect:"+REQUEST_MAPPING_LIST);
+        return new ModelAndView("redirect:" + REQUEST_MAPPING_LIST);
     }
 }

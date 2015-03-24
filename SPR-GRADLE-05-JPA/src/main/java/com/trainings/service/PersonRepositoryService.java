@@ -4,7 +4,6 @@ package com.trainings.service;
 import com.trainings.dto.PersonDTO;
 import com.trainings.model.Person;
 import com.trainings.repository.PersonRepository;
-import com.trainings.repository.PersonSpecifications;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -86,7 +85,8 @@ public class PersonRepositoryService implements PersonService {
     @Override
     public List<Person> searchWithCriteria(String name) {
         List<Person> all = personRepository.findAll(lastNameIsLike(name));
-        return all;   }
+        return all;
+    }
 
     public void setPersonRepository(PersonRepository personRepository) {
         this.personRepository = personRepository;

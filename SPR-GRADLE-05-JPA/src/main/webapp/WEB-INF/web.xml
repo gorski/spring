@@ -19,6 +19,7 @@
             <!--<param-value>com.trainings.springconfig.WebConfig, com.trainings.springconfig.AppConfig</param-value> -->
             <param-value>com.trainings.springconfig</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
