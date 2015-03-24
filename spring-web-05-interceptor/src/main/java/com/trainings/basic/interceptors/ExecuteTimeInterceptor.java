@@ -43,4 +43,9 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter {
         modelAndView.addObject("executionTime", duration);
     }
 
+    @Override
+    public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        super.afterConcurrentHandlingStarted(request, response, handler);
+        LOG.info("View has been rendered.");
+    }
 }

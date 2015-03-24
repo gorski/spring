@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class WebConfig {
 
     @Bean
-    public static PropertyPlaceholderConfigurer configurer() {
+    public PropertyPlaceholderConfigurer configurer() {
         PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
         ppc.setLocations(new ClassPathResource("app.properties"));
         return ppc;

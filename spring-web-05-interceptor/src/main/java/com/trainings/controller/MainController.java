@@ -22,7 +22,7 @@ public class MainController {
 
         try {
             // some time consuming operation , random 0 - 10 seconds
-            Thread.sleep(new Random().nextInt(10)*1000);
+            Thread.sleep(new Random().nextInt(10000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
