@@ -12,11 +12,7 @@ public class App {
 		CustomerService cust = (CustomerService) appContext
 				.getBean("customerServiceProxy");
 
-		System.out.println("*************************");
-		cust.printName();
-		System.out.println("*************************");
-		cust.printURL();
-		System.out.println("*************************");
+		cust.setName("dro222p database");
 		try {
 			cust.printThrowException();
 		} catch (Exception e) {

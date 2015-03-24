@@ -9,10 +9,12 @@ public class HijackAroundMethod implements MethodInterceptor {
 	@Override
 	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
 
-		System.out.println("Method name : "
-				+ methodInvocation.getMethod().getName());
-		System.out.println("Method arguments : "
-				+ Arrays.toString(methodInvocation.getArguments()));
+		Object[] arguments = methodInvocation.getArguments();
+		for (Object argument : arguments) {
+			if (argument.toString().contains("drop")){
+				throw new IllegalArgumentException("!");
+			}
+		}
 
 		// same with MethodBeforeAdvice
 		System.out.println("HijackAroundMethod : Before method hijacked!");
