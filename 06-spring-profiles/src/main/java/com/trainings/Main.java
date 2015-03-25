@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		ConfigurableApplicationContext xmlContext = new AnnotationConfigApplicationContext(AppConfig.class);
-		CalculationStrategy context = xmlContext.getBean("myStrategy", CalculationStrategy.class);
+		CalculationStrategy context = xmlContext.getBean(CalculationStrategy.class);
 		System.out.println("Result (spring): " + context.execute(10, 30));
 
 	}
