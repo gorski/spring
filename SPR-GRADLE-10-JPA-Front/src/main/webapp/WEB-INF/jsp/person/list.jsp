@@ -61,6 +61,7 @@
 
 <h1>Search queries (returning JSON/XML)</h1>
 <ul>
+    <li>Ajax search: <a href="<c:url value='/ajax/' />">here</a></li>
     <li>JPA Query: <b><a href="<c:url value='/person/searchQuery/Kowalski' />">/person/searchQuery/Kowalski</a></b></li>
     <li>JPA Named query: <b><a href="<c:url value='/person/searchNamedQuery/Kowalski' />">/person/searchQuery/Kowalski</a></b></li>
     <li>Criteria API: <b><a href="<c:url value='/person/searchCriteria/Kowalski' />">/person/searchCriteria/Kowalski</a></b></li>

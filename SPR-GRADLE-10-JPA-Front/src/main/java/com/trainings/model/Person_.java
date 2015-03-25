@@ -6,4 +6,5 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Person.class)
 public class Person_ {
     public static volatile SingularAttribute<Person, String> lastName;
+    public static volatile SingularAttribute<Person, String> firstName;
 }
