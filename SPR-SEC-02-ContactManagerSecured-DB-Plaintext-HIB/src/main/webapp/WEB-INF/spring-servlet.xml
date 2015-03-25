@@ -54,6 +54,7 @@
   
   <mvc:interceptors>
     <mvc:interceptor>
+      <!-- this intercepts all requests and adds ${loggedUser} information -->
       <mvc:mapping path="/*" />
       <bean class="com.trainings.spring.basic.interceptors.LoggedUserInterceptor" />
     </mvc:interceptor>

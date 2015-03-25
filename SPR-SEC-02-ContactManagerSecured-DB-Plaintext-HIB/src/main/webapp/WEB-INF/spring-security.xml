@@ -14,7 +14,11 @@
     http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
       ">
 
-  <http auto-config="true" >
+  <http auto-config="true"  >
+
+      <!--<remember-me token-validity-seconds="36000" />-->
+
+
 
     <!-- Don't set any role restrictions on login.jsp -->
     <intercept-url pattern="/login.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" />

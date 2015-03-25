@@ -34,24 +34,37 @@ public class LoggedUserInterceptor extends HandlerInterceptorAdapter {
     // 1st way
 
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+
     String name = auth.getName(); //get logged in username
     Collection<? extends GrantedAuthority> roles = auth.getAuthorities();
     for (GrantedAuthority grantedAuthority : roles) {
       name += " ";
       name += grantedAuthority.getAuthority().toString();
     }
-    modelAndView.addObject("loggedUserA", name);
+    modelAndView.addObject("loggedUser", name);
 
     // 2nd way
 
-    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    String username = user.getUsername(); //get logged in username
-    Collection<? extends GrantedAuthority> rolez = user.getAuthorities();
-    for (GrantedAuthority grantedAuthority : rolez) {
-      username += " ";
-      username += grantedAuthority.getAuthority().toString();
-    }
-    modelAndView.addObject("loggedUserB", username);
+    // watch out for class casting!
+
+//    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//    if (principal instanceof User){
+//      // ... user logged in
+//    } else if (principal instanceof  String) {
+//      // anonymous login, i.e. String "anonymous"
+//    } else {
+//      // sth else
+//    }
+
+//    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//    String username = user.getUsername(); //get logged in username
+//    Collection<? extends GrantedAuthority> rolez = user.getAuthorities();
+//    for (GrantedAuthority grantedAuthority : rolez) {
+//      username += " ";
+//      username += grantedAuthority.getAuthority().toString();
+//    }
+//    modelAndView.addObject("loggedUserB", username);
 
   }
 

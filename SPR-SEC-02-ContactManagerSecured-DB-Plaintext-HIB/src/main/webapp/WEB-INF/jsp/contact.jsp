@@ -7,11 +7,12 @@
     <title>Spring 3.x MVC - Contact Manager</title>
 </head>
 <body>
- 
-<h2>Hello (${loggedUserA}, ${loggedUserB}) in Contact Manager</h2>
+
+<%-- this disiplays logged user info --%>
+<h2>Hello ${loggedUser}. Welcome in Contact Manager</h2>
 
 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-<h2 style="color:green">yey, i'm an admin</h2> 
+    <h2 style="color:green">yey, i'm an admin</h2>
 </sec:authorize>
  
 <form:form method="post" action="add.html" commandName="contact">
@@ -65,6 +66,8 @@
 </c:if>
 
   <br/>
+
+  <%-- This makes all the link context-relative --%>
   <a href="<spring:url value="/logout" htmlEscape="true" />">Logout</a>
   <br/>
 

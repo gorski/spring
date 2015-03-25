@@ -60,36 +60,6 @@ public class ContactController {
 		return "redirect:/index";
 	}
 
-	private void listCtx(ApplicationContext ctx) {
-
-		System.out.println("----------------------");
-		System.out.println("Ctx id: " + ctx.getDisplayName());
-		System.out.println("Bean count: " + ctx.getBeanDefinitionCount());
-		String[] beans = ctx.getBeanDefinitionNames();
-		for (String b : beans) {
-
-			Object bean = ctx.getBean(b);
-			boolean singleton = ctx.isSingleton(b);
-
-			StringBuffer sb = new StringBuffer();
-			sb.append(singleton ? "[S] " : "[P] ");
-			if (bean.getClass().toString().contains("com.trainings")) {
-				sb.append(" + ");
-			} else {
-				sb.append(" > ");
-			}
-			sb.append(bean.getClass());
-
-			System.out.println(sb.toString());
-		}
-
-		ApplicationContext parent = ctx.getParent();
-		if (parent != null) {
-			listCtx(parent);
-
-		}
-	}
-	
 	
 	@ExceptionHandler(Throwable.class)
 	  public ModelAndView handleNullPointerException(Throwable ex) {

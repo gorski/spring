@@ -8,7 +8,9 @@
 </head>
 <body>
 
+<div style="color:red">
 ${error}
+</div>
 
 </body>
 

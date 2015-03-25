@@ -19,8 +19,7 @@ public class TraceAspect {
 
 		final Object retVal = pjp.proceed();
 
-		User user = (User) SecurityContextHolder.getContext()
-				.getAuthentication().getPrincipal();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String name = user.getUsername(); // get logged in username
 		
 
