@@ -15,8 +15,6 @@ public class StrategyFactory {
         this.myStrategy = myStrategy;
     }
 
-
-
     public CalculationStrategy getMyStrategy() {
         return myStrategy;
     }

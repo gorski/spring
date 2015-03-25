@@ -9,8 +9,11 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <bean id="strategyFactory" class="com.trainings.StrategyFactory">
+    <bean id="strategyFactory" class="com.trainings.StrategyFactory" >
+
+        <!-- the only one, obligatory constructor -->
         <constructor-arg ref="myStrategy" />
+
     </bean>
 
     <bean id="strategyExecutor"

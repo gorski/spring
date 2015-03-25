@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan(basePackages = {"com.trainings.controller"})
 @ImportResource("/WEB-INF/spring-servlet.xml")
-@EnableWebMvc
+//@EnableWebMvc
 public class WebConfig {
 
     @Bean
