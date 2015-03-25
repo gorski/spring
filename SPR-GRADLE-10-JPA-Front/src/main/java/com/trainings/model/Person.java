@@ -6,10 +6,15 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+//@Entity
+//@Table(name = "persons")
+//@NamedQuery(name = "Person.findByName",
+//        query = "SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(?1)")
+
 @Entity
 @Table(name = "persons")
 @NamedQuery(name = "Person.findByName",
-        query = "SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(?1)")
+        query = "SELECT p FROM Person p WHERE LOWER(p.lastName) LIKE LOWER(?1) OR LOWER(p.firstName) LIKE LOWER(?1)")
 public class Person {
 
     @Id
