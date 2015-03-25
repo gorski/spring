@@ -1,0 +1,128 @@
+
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'idea'
+apply plugin: 'tomcat'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.9'
+    }
+}
+
+
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Spring
+def springVersion = '3.2.4.RELEASE'
+def springDataVersion = '1.3.4.RELEASE'
+def aspectJVersion = '1.6.9'
+def slf4jVersion = '1.5.10'
+def log4JVersion = '1.2.17'
+def javaxServletAPIVersion = '3.0.1'
+def javaxJspApiVersion = '2.2.1'
+def javaxJSTLVersion = '1.2'
+def commonsLoggingVersion = '1.1.1'
+def jUnitVersion = '4.10'
+def mockitoVersion = '1.9.5'
+def mysqlConnectorVersion = '5.1.26'
+def hibernateVersion = '4.2.0.Final'
+def commonsLangVersion = '2.6'
+def tomcatVersion = '7.0.42'
+
+
+
+def springCore = "org.springframework:spring-core:${springVersion}"
+def springBeans = "org.springframework:spring-beans:${springVersion}"
+def springContext = "org.springframework:spring-context:${springVersion}"
+def springWeb = "org.springframework:spring-web:${springVersion}"
+def springMVC = "org.springframework:spring-webmvc:${springVersion}"
+def springAOP = "org.springframework:spring-aop:${springVersion}"
+def springTest = "org.springframework:spring-test:${springVersion}"
+def commonsLang = "commons-lang:commons-lang:${commonsLangVersion}"
+def springData = "org.springframework.data:spring-data-jpa:${springDataVersion}"
+def boneCpVersion = '0.7.1.RELEASE'
+
+// JPA
+def springTx = "org.springframework:spring-tx:${springVersion}"
+def springOrm = "org.springframework:spring-orm:${springVersion}"
+def h2Database = "com.h2database:h2:1.3.173"
+def mySqlConnector = "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+def hibernateEm = "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+def hibernateValidator = "org.hibernate:hibernate-validator:${hibernateVersion}"
+def boneCp = "com.jolbox:bonecp:${boneCpVersion}"
+
+// AspectJ:
+
+def aspectJ = "org.aspectj:aspectjrt:${aspectJVersion}"
+
+// Logging:
+
+def slf4jAPI = "org.slf4j:slf4j-api:${slf4jVersion}"
+def slf4jJCL = "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+def slf4jLog4J = "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+
+
+def log4J = "log4j:log4j:${log4JVersion}"
+
+
+def javaxServletAPI = "javax.servlet:javax.servlet-api:${javaxServletAPIVersion}"
+def javaxJspApi = "javax.servlet.jsp:jsp-api:${javaxJspApiVersion}"
+def javaxJSTL = "javax.servlet:jstl:${javaxJSTLVersion}"
+def commonsLogging = "commons-logging:commons-logging:${commonsLoggingVersion}"
+def jUnit = "junit:junit:${jUnitVersion}"
+def mockito = "org.mockito:mockito-all:${mockitoVersion}"
+def jackson ="org.codehaus.jackson:jackson-jaxrs:1.9.13"
+def guava = "com.google.guava:guava:14.0.1"
+
+// tomcat
+
+    
+
+dependencies {
+    providedCompile (
+            javaxServletAPI, javaxJSTL
+    )
+    compile(
+            springCore, springBeans, springWeb,
+            springContext, springMVC, log4J, springData,
+            guava,
+
+            springAOP, springOrm, springTx, mySqlConnector, h2Database,
+            commonsLang,
+
+            boneCp, jackson,
+
+            hibernateEm, hibernateValidator
+
+
+    )
+    runtime ()
+    testCompile(
+            jUnit, springTest, mockito
+    )
+	
+	tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+}
+
+/* Change context path (base url). otherwise defaults to name of project */
+jettyRunWar.contextPath = ''
+jettyRun.contextPath = '/'

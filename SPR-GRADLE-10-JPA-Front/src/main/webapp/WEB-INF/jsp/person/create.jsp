@@ -1,0 +1,41 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<html>
+<head>
+    <title><spring:message code="spring.data.jpa.example.title"/></title>
+</head>
+<body>
+    <h1><spring:message code="person.create.page.title"/></h1>
+    <a href="<c: url value='/' />"><spring:message code="person.list.link.label"/></a>
+    <div>
+        <form:form action="${pageContext.request.contextPath}/person/create" commandName="person" method="POST">
+            <div>
+                <form:label path="firstName"><spring:message code="person.label.firstName"/>:</form:label>
+                <form:input path="firstName" size="20"/>
+                <form:errors path="firstName" cssClass="error" element="div"/>
+            </div>
+            <div>
+                <form:label path="lastName"><spring:message code="person.label.lastName"/>:</form:label>
+                <form:input path="lastName" size="20"/>
+                <form:errors path="lastName" cssClass="error" element="div"/>
+            </div>
+
+            <div>
+                <form:label path="address">Address</form:label>
+                <form:input path="address" size="20"/>
+            </div>
+            <div>
+                <form:label path="phones[0]">Phone numbers</form:label>
+                <form:input path="phones[0]" size="20"/>
+                <form:input path="phones[1]" size="20"/>
+                <form:input path="phones[2]" size="20"/>
+                <form:input path="phones[3]" size="20"/>
+            </div>
+            <div>
+                <input type="submit" value="<spring:message code="person.create.page.submit.label"/>"/>
+            </div>
+        </form:form>
+    </div>
+</body>
+</html>
