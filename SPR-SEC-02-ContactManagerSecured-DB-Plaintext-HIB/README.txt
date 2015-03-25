@@ -17,4 +17,8 @@ changing lang:
     <bean id="localeChangeInterceptor"
           class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="locale" />
-2. call any url : ?locale=pl etc.
+2. call any url : ?locale=pl etc
+
+
+!!
+for group authorities see config/group-auth.
