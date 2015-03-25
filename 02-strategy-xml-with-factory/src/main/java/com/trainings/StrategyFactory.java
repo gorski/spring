@@ -9,8 +9,13 @@ import org.springframework.context.annotation.Bean;
  */
 public class StrategyFactory {
 
-    @Autowired
     private CalculationStrategy myStrategy;
+
+    public StrategyFactory(CalculationStrategy myStrategy) {
+        this.myStrategy = myStrategy;
+    }
+
+
 
     public CalculationStrategy getMyStrategy() {
         return myStrategy;
