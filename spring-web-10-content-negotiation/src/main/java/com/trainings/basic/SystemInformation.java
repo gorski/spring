@@ -17,7 +17,7 @@ public class SystemInformation {
 
     @Value("#{ systemProperties['os.name'] }")
     private String osName;
-    
+
     @Value("#{ systemProperties['java.version'] }")
     private String javaVersion;
 

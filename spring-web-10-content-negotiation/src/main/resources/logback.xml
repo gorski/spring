@@ -7,7 +7,7 @@
         </layout>
     </appender>
 
-    <logger name="*" level="INFO"/>
+    <logger name="*" level="trace"/>
 
     <logger name="com.trainings" level="debug"/>
 
