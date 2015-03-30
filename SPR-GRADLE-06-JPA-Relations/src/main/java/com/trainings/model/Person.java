@@ -1,6 +1,7 @@
 package com.trainings.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -34,10 +35,14 @@ public class Person {
 
     // slave of the relation - optional, used to render view
     @OneToOne(mappedBy = "person", optional = true)
+    // json must ignore this property, otherwise data will get fetched recursively
+    @JsonIgnore
     private Address address;
 
     // slave of the relation - optional, used to render view
     @OneToMany(mappedBy="person", cascade = CascadeType.REFRESH)
+    // json must ignore this property, otherwise data will get fetched recursively
+    @JsonIgnore
     private List<MobilePhone> mobilePhones;
 
     public Long getId() {
